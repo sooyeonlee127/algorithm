@@ -1,6 +1,6 @@
 def solution(s):
     answer = len(s)
-    for n in range(1, len(s)//2+1):
+    for n in range(2, len(s)//2+1):
         result = ''
         temp = s[:n]
         cnt = 1
