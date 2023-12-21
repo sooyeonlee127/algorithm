@@ -1,22 +1,20 @@
 answer = 0
+def solution(num):
+    global answer
+    collatz(num, 0)
+    return answer
 
-def check(num):
+def collatz(num, step):
     global answer
     if num == 1:
+        answer = step
         return
-    answer += 1
-
-    if answer > 500:
+    if step >= 500:
         answer = -1
         return
     if num % 2 == 0:
-        return check(num//2)
+        return collatz(num // 2, step+1)
     else:
-        return check((num*3)+1)
-def solution(num):
-    global answer
-    if num == 1:
-        answer = 0
-    else:
-        check(num)
-    return answer
+        return collatz(num * 3 + 1, step+1)
+    
+    
